@@ -8,6 +8,7 @@ It uses pickle to save scores. To save the score type "s" in any chat. This is n
 To clear edited messages type "c" in the chat. It uses regex to check last 100 messages and delete anything that matches it. (the exact regex I am using is not included).
 
 Modules required:
-
-# pip install discord.py
-# pip install python-dotenv
+```
+pip install discord.py
+pip install python-dotenv
+```
