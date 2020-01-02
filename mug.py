@@ -5,8 +5,8 @@ from discord.ext import commands
 import pickle
 import random as rd
 
-my_id = 12345 #YOUR ID AS INTEGER
-regex = '[c][\s\S]*[c][\s\S]*[p̃]' #YOUR regex
+my_id = 12345  # YOUR ID AS INTEGER
+regex = '[c][\s\S]*[c][\s\S]*[p̃]'  # YOUR regex
 TOKEN = 'YOUR TOKEN'
 GUILD = 'YOUR GUILD ID (str)'
 
@@ -36,15 +36,15 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-    if message.author.id == my_id and message.content == 'c':
-        async for msg in message.channel.history(limit=100):
+    if message.author.id == my_id and message.content == 'c':  # Cleaning of last messages function
+        async for msg in message.channel.history(limit=100):  # Here you can change how many messages to look up
             if re.search(regex, msg.content) is not None and message.author != client.user:
                 await msg.delete()
-            #print(repr(msg.content))
-        pickle.dump(mugs_count, open("save.p", "wb"))
+            # print(repr(msg.content))
+        pickle.dump(mugs_count, open("save.p", "wb"))  # Saving scores. (this line is not essential)
         await message.delete()
 
-    elif message.author.id == my_id and message.content == 's':
+    elif message.author.id == my_id and message.content == 's':  # Saving scores
         pickle.dump(mugs_count, open("save.p", "wb"))
         await message.delete()
 
@@ -55,11 +55,11 @@ async def on_message(message):
                 await message.channel.send(f'<@{message.author.id}> You absolute fool! You though you could oppose me, mortal! You can only write mug in here.')
             else:
                 mugs_count.setdefault(message.author.id, [0, 0])
-                mugs_count[message.author.id][0] += 1
-                if rd.randint(1, 1200) == 1:
+                mugs_count[message.author.id][0] += 1  # Keeping the score
+                if rd.randint(1, 1200) == 1:  # Here you can change legendary drop rate
                     mugs_count[message.author.id][1] += 1
                     await message.channel.send(f'<@{message.author.id}> You found a legendary mug!')
-                for m in [25, 500, 2500, 8000, 20000, 50000]:  #Role names.
+                for m in [25, 500, 2500, 8000, 20000, 50000]:  # Role values.
                     if mugs_count[message.author.id][0] == m:
                         user = message.author
                         await user.add_roles(discord.utils.get(user.guild.roles, name=f'{m}+ mugs'))
