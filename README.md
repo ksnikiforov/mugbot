@@ -1,7 +1,7 @@
 # mugbot
 Source code of the mug discord bot
 
-The code looks really bad and a lot of things can be improved, so feel free to brach it.
+The code looks really bad and a lot of things can be improved but the meme is dead by now.
 
 It uses pickle to save scores. To save the score type "s" in any chat. This is not the best solution, but it is better than to save scores on each 'mug' message.
 
