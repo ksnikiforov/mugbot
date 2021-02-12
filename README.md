@@ -1,11 +1,7 @@
 # mugbot
 Source code of the mug discord bot
 
-The code looks really bad and a lot of things can be improved but the meme is dead by now.
-
-It uses pickle to save scores. To save the score type "s" in any chat. This is not the best solution, but it is better than to save scores on each 'mug' message.
-
-To clear edited messages type "c" in the chat. It uses regex to check last 100 messages and delete anything that matches it. (the exact regex I am using is not included).
+The whole purpose of this bot is to delete any message other the regex. It also counts how many times a word was writen and keeps it as a score. The project was writen as a joke for the discord server.
 
 Modules required:
 ```
